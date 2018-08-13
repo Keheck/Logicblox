@@ -1,0 +1,10 @@
+{
+  "parent": "logicblox:block/gate_base_two_in",
+  "textures":
+  {
+    "symbol": "logicblox:blocks/nand_gate_symbol",
+    "lights": "logicblox:blocks/gate_lights",
+    "in": "logicblox:blocks/gate_input",
+    "out": "logicblox:blocks/gate_output"
+  }
+}

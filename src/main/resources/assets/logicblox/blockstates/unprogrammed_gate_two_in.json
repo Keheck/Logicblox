@@ -1,0 +1,9 @@
+{
+  "variants":
+  {
+    "facing=north": {"model": "logicblox:unprogramed_gate_two_in"},
+    "facing=east": {"model": "logicblox:unprogramed_gate_two_in", "y": 90},
+    "facing=south": {"model": "logicblox:unprogramed_gate_two_in", "y": 180},
+    "facing=west": {"model": "logicblox:unprogramed_gate_two_in", "y": 270}
+  }
+}

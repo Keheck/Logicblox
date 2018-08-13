@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures":
+  {
+    "particle": "#lights",
+    "up": "#symbol",
+    "down": "#lights",
+    "west": "#in",
+    "east": "#in",
+    "north": "#lights",
+    "south": "#out"
+  }
+}

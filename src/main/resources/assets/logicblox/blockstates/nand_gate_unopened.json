@@ -1,0 +1,9 @@
+{
+  "variants":
+  {
+    "facing=north": { "model": "logicblox:nand_gate_block"},
+    "facing=south": { "model": "logicblox:nand_gate_block", "y": 180},
+    "facing=west": { "model": "logicblox:nand_gate_block", "y" : 270},
+    "facing=east": { "model": "logicblox:nand_gate_block", "y" : 90}
+  }
+}
