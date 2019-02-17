@@ -1,0 +1,13 @@
+{
+  "variants":
+  {
+    "active=true,facing=north": { "model": "logicblox:nand_gate_block"},
+    "active=true,facing=south": { "model": "logicblox:nand_gate_block", "y": 180},
+    "active=true,facing=west": { "model": "logicblox:nand_gate_block", "y" : 270},
+    "active=true,facing=east": { "model": "logicblox:nand_gate_block", "y" : 90},
+    "active=false,facing=north": { "model": "logicblox:nand_gate_block"},
+    "active=false,facing=south": { "model": "logicblox:nand_gate_block", "y": 180},
+    "active=false,facing=west": { "model": "logicblox:nand_gate_block", "y" : 270},
+    "active=false,facing=east": { "model": "logicblox:nand_gate_block", "y" : 90}
+  }
+}

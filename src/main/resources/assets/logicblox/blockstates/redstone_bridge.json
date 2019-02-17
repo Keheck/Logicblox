@@ -1,0 +1,9 @@
+{
+  "variants":
+  {
+    "facing=north": {"model": "logicblox:redstone_bridge"},
+    "facing=east": {"model": "logicblox:redstone_bridge", "y": 90},
+    "facing=south": {"model": "logicblox:redstone_bridge", "y": 180},
+    "facing=west": {"model": "logicblox:redstone_bridge", "y": 270}
+  }
+}

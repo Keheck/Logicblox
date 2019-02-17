@@ -1,0 +1,25 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "logicblox:block/gate_base_two_in",
+	"textures": {
+		"0": "logicblox:blocks/set_input",
+		"1": "logicblox:blocks/reset_input",
+		"2": "logicblox:blocks/gate_output",
+		"3": "logicblox:blocks/gate_lights",
+		"particle": "logicblox:blocks/gate_lights"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		}
+	]
+}

@@ -1,0 +1,13 @@
+{
+  "variants":
+  {
+    "active=true,facing=north": { "model": "logicblox:rsnor_latch"},
+    "active=true,facing=south": { "model": "logicblox:rsnor_latch", "y": 180},
+    "active=true,facing=west": { "model": "logicblox:rsnor_latch", "y" : 270},
+    "active=true,facing=east": { "model": "logicblox:rsnor_latch", "y" : 90},
+    "active=false,facing=north": { "model": "logicblox:rsnor_latch"},
+    "active=false,facing=south": { "model": "logicblox:rsnor_latch", "y": 180},
+    "active=false,facing=west": { "model": "logicblox:rsnor_latch", "y" : 270},
+    "active=false,facing=east": { "model": "logicblox:rsnor_latch", "y" : 90}
+  }
+}

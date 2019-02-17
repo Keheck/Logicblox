@@ -1,0 +1,14 @@
+{
+  "variants":
+  {
+    "active=true,facing=north": { "model": "logicblox:clock"},
+    "active=true,facing=east": { "model": "logicblox:clock", "y": 90},
+    "active=true,facing=west": { "model": "logicblox:clock", "y" : 270},
+    "active=true,facing=south": { "model": "logicblox:clock", "y" : 180},
+
+    "active=false,facing=north": { "model": "logicblox:clock"},
+    "active=false,facing=south": { "model": "logicblox:clock", "y": 180},
+    "active=false,facing=west": { "model": "logicblox:clock", "y" : 270},
+    "active=false,facing=east": { "model": "logicblox:clock", "y" : 90}
+  }
+}
