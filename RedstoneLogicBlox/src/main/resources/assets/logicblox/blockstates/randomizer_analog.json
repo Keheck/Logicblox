@@ -1,0 +1,9 @@
+{
+  "variants":
+  {
+    "facing=north": {"model": "logicblox:randomizer_analog"},
+    "facing=east" : {"model": "logicblox:randomizer_analog", "y": 90},
+    "facing=south": {"model": "logicblox:randomizer_analog", "y": 180},
+    "facing=west" : {"model": "logicblox:randomizer_analog", "y": 270}
+  }
+}

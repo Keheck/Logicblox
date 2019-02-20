@@ -1,0 +1,9 @@
+{
+  "variants":
+  {
+    "facing=north": { "model": "logicblox:flipflop_toggleable"},
+    "facing=south": { "model": "logicblox:flipflop_toggleable", "y": 180},
+    "facing=west" : { "model": "logicblox:flipflop_toggleable", "y": 270},
+    "facing=east" : { "model": "logicblox:flipflop_toggleable", "y": 90}
+  }
+}

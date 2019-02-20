@@ -1,0 +1,10 @@
+{
+  "parent": "logicblox:block/base_gate_onein",
+  "textures":
+  {
+    "symbol": "logicblox:blocks/randomizer_dig_symbol",
+    "lights": "logicblox:blocks/gate_lights",
+    "in": "logicblox:blocks/gate_input",
+    "out": "logicblox:blocks/gate_output"
+  }
+}

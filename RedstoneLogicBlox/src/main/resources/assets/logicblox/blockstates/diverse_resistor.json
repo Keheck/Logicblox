@@ -1,0 +1,14 @@
+{
+  "variants":
+  {
+    "active=true,facing=north": {"model": "logicblox:diverse_resistor"},
+    "active=true,facing=east": {"model": "logicblox:diverse_resistor", "y": 90},
+    "active=true,facing=south": {"model": "logicblox:diverse_resistor", "y": 180},
+    "active=true,facing=west":  {"model": "logicblox:diverse_resistor", "y": 270},
+
+    "active=false,facing=north": {"model": "logicblox:diverse_resistor"},
+    "active=false,facing=east": {"model": "logicblox:diverse_resistor", "y": 90},
+    "active=false,facing=south": {"model": "logicblox:diverse_resistor", "y": 180},
+    "active=false,facing=west": {"model": "logicblox:diverse_resistor", "y": 270}
+  }
+}

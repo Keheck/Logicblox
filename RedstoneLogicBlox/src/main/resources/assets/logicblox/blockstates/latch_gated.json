@@ -1,0 +1,14 @@
+{
+  "variants":
+  {
+    "active=true,facing=north": {"model": "logicblox:latch_gated"},
+    "active=true,facing=east": {"model": "logicblox:latch_gated", "y": 90},
+    "active=true,facing=west": {"model": "logicblox:latch_gated", "y": 270},
+    "active=true,facing=south": {"model": "logicblox:latch_gated", "y": 180},
+
+    "active=false,facing=north": {"model": "logicblox:latch_gated"},
+    "active=false,facing=east": {"model": "logicblox:latch_gated", "y": 90},
+    "active=false,facing=west": {"model": "logicblox:latch_gated", "y": 270},
+    "active=false,facing=south": {"model": "logicblox:latch_gated", "y": 180}
+  }
+}

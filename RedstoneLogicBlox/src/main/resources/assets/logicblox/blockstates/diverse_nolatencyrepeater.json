@@ -1,0 +1,9 @@
+{
+  "variants":
+  {
+    "facing=north": {"model": "logicblox:diverse_nolatencyrepeater"},
+    "facing=east": {"model": "logicblox:diverse_nolatencyrepeater", "y": 90},
+    "facing=west": {"model": "logicblox:diverse_nolatencyrepeater", "y": 270},
+    "facing=south": {"model": "logicblox:diverse_nolatencyrepeater", "y": 180}
+  }
+}

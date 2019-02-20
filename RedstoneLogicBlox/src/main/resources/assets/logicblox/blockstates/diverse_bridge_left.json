@@ -1,0 +1,9 @@
+{
+  "variants":
+  {
+    "facing=north": {"model": "logicblox:diverse_bridge_left"},
+    "facing=south": {"model": "logicblox:diverse_bridge_left", "y": 180},
+    "facing=east": {"model": "logicblox:diverse_bridge_left", "y": 90},
+    "facing=west": {"model": "logicblox:diverse_bridge_left", "y": 270}
+  }
+}

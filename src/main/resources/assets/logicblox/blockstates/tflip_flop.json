@@ -1,9 +1,0 @@
-{
-  "variants":
-  {
-    "facing=north": { "model": "logicblox:tflip_flop"},
-    "facing=south": { "model": "logicblox:tflip_flop", "y": 180},
-    "facing=west": { "model": "logicblox:tflip_flop", "y" : 270},
-    "facing=east": { "model": "logicblox:tflip_flop", "y" : 90}
-  }
-}
