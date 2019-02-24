@@ -16,6 +16,11 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.Random;
 
+/**
+ * Is used for memory storage and is only writable
+ * when the write input is powered
+ */
+
 public class BlockGatedLatch extends GateBase
 {
     public BlockGatedLatch(String name) { super(name); }
@@ -37,6 +42,7 @@ public class BlockGatedLatch extends GateBase
         boolean writeConnected = writeState.getBlock() == Blocks.REDSTONE_WIRE;
         boolean inputConnected = inputState.getBlock() == Blocks.REDSTONE_WIRE;
 
+        //Checks if the inputs are connected
         if(writeConnected && inputConnected)
         {
             boolean inputPowered = inputState.getValue(BlockRedstoneWire.POWER) > 0;
@@ -51,6 +57,9 @@ public class BlockGatedLatch extends GateBase
                 worldIn.setBlockState(pos, state.withProperty(ACTIVE, false));
             }
         }
+        //the inputConnected is not required,
+        //since it only has an effect when
+        //the write enable is connected
         else if(writeConnected)
         {
             worldIn.setBlockState(pos, state.withProperty(ACTIVE, false));

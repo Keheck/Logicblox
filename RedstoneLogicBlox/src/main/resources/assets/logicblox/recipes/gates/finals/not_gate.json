@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "WTW"
+  ],
+  "key":
+  {
+    "W":
+    {
+      "item": "minecraft:redstone"
+    },
+    "T":
+    {
+      "item": "logicblox:ingred_base_wire_torch"
+    }
+  },
+  "result":
+  {
+    "item": "logicblox:gate_not"
+  }
+}

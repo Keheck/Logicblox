@@ -16,9 +16,14 @@ item.randomizer_analog.name=Randomizer (Analog)
 item.diverse_resistor.name=Resistor
 item.diverse_bridge_left.name=Redstone Bridge (Left Input)
 item.diverse_bridge_right.name=Redstone Bridge (Right Input)
-item.diverse_nolatencyrepeater.name=Repeater Without Latency
+item.diverse_nodelayrepeater.name=Repeater Without delay
+item.latch_gated.name=Gated Latch
+
+###Tabs###
+itemGroup.lblocks=Logicblox' Blocks
+itemGroup.litems=Logicblox' Items
 
 ###Items###
 item.ingred_base_torch_none.name=Torch on a block
 item.ingred_base_wire_none.name=Wire on a block
-item.ingred_base_wire_torch.name=Torch on side and wire on a block
+item.ingred_base_wire_torch.name=Torch on side of and wire on a block

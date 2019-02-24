@@ -18,6 +18,10 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+/**
+ * gives a random output between 1 and 15 when powered
+ */
+
 public class BlockRandomizerAnalog extends GateBase implements ITileEntityProvider, OneIn
 {
 
@@ -37,9 +41,6 @@ public class BlockRandomizerAnalog extends GateBase implements ITileEntityProvid
         return entity instanceof TileEntityRandomizerAnalog ? ((TileEntityRandomizerAnalog)entity).getOutputSignal() : 0;
     }
 
-    /**
-     * @see GateBase#getPoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getPoweredState(IBlockState unpoweredState)
     {
@@ -47,9 +48,6 @@ public class BlockRandomizerAnalog extends GateBase implements ITileEntityProvid
         return BlockInit.RANDOMIZER_ANALOG.getDefaultState().withProperty(FACING, facing);
     }
 
-    /**
-     * @see GateBase#getUnpoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getUnpoweredState(IBlockState poweredState)
     {

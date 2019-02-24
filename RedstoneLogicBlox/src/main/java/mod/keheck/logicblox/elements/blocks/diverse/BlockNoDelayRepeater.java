@@ -16,9 +16,14 @@ import net.minecraft.world.IBlockAccess;
 
 import java.util.Random;
 
-public class BlockNoLatencyRepeater extends GateBase implements OneIn, NoActiveState
+/**
+ * Acts like a normal repeater without any latency
+ * TODO: make blockable
+ */
+
+public class BlockNoDelayRepeater extends GateBase implements OneIn, NoActiveState
 {
-    public BlockNoLatencyRepeater(String name) { super(name); }
+    public BlockNoDelayRepeater(String name) { super(name); }
 
     @Override
     protected int getActiveSignal(IBlockAccess worldIn, BlockPos pos, IBlockState state)

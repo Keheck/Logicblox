@@ -16,6 +16,10 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+/**
+ * Has two inputs that set and reset the output
+ */
+
 public class BlockRsLatch extends GateBase implements TwoIn
 {
     public BlockRsLatch(String name) { super(name); }
@@ -32,9 +36,6 @@ public class BlockRsLatch extends GateBase implements TwoIn
         return getWeakPower(blockState, access, pos, facing);
     }
 
-    /**
-     * @see GateBase#getPoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getPoweredState(IBlockState unpoweredState)
     {
@@ -42,9 +43,6 @@ public class BlockRsLatch extends GateBase implements TwoIn
         return BlockInit.LATCH_RS.getDefaultState().withProperty(FACING, facing).withProperty(ACTIVE, true);
     }
 
-    /**
-     * @see GateBase#getUnpoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getUnpoweredState(IBlockState poweredState)
     {
@@ -54,26 +52,22 @@ public class BlockRsLatch extends GateBase implements TwoIn
 
     private void changeState(World worldIn, BlockPos pos, IBlockState state)
     {
-        EnumFacing facing1 = state.getValue(FACING).rotateYCCW();
-        EnumFacing facing2 = state.getValue(FACING).rotateY();
+        //Sets up everything needed to calculate the inputs
+        IBlockState state1 = worldIn.getBlockState(pos.offset(state.getValue(FACING).rotateYCCW()));
+        IBlockState state2 = worldIn.getBlockState(pos.offset(state.getValue(FACING).rotateY()));
 
-        BlockPos pos1 = pos.offset(facing1);
-        BlockPos pos2 = pos.offset(facing2);
-
-        IBlockState state1 = worldIn.getBlockState(pos1);
-        IBlockState state2 = worldIn.getBlockState(pos2);
-
-        Block block1 = state1.getBlock();
-        Block block2 = state2.getBlock();
+        Block setBlock = state1.getBlock();
+        Block resetBlock = state2.getBlock();
 
         boolean isPowered = state.getValue(ACTIVE);
 
-        if(block1 == Blocks.REDSTONE_WIRE && block2 == Blocks.REDSTONE_WIRE)
+        if(setBlock == Blocks.REDSTONE_WIRE && resetBlock == Blocks.REDSTONE_WIRE)
         {
             boolean power1 = state1.getValue(BlockRedstoneWire.POWER) > 0;
             boolean power2 = state2.getValue(BlockRedstoneWire.POWER) > 0;
             boolean notIllegalState = !(power1 && power2);
 
+            //Checks if the inputs don't cause an illegal state
             if(notIllegalState)
             {
                 if(power1 && !isPowered)
@@ -88,7 +82,9 @@ public class BlockRsLatch extends GateBase implements TwoIn
                 }
             }
         }
-        else if(block1 == Blocks.REDSTONE_WIRE)
+        //Handles the case where only
+        //the set side is connected
+        else if(setBlock == Blocks.REDSTONE_WIRE)
         {
             boolean power1 = state1.getValue(BlockRedstoneWire.POWER) > 0;
             boolean change = (!isPowered && power1);
@@ -99,7 +95,9 @@ public class BlockRsLatch extends GateBase implements TwoIn
                 worldIn.notifyNeighborsOfStateChange(pos, this, false);
             }
         }
-        else if(block2 == Blocks.REDSTONE_WIRE)
+        //Handles the case where only
+        //the reset side is connected
+        else if(resetBlock == Blocks.REDSTONE_WIRE)
         {
             boolean power2 = state2.getValue(BlockRedstoneWire.POWER) > 0;
             boolean change = (isPowered && power2);

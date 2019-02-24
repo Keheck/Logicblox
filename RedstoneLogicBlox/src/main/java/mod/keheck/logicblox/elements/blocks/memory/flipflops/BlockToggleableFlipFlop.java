@@ -18,6 +18,10 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+/**
+ * every time it recieves an input, the output changes
+ */
+
 public class BlockToggleableFlipFlop extends GateBase implements OneIn, ITileEntityProvider
 {
     public BlockToggleableFlipFlop(String name) { super(name); }
@@ -48,9 +52,6 @@ public class BlockToggleableFlipFlop extends GateBase implements OneIn, ITileEnt
         return 0;
     }
 
-    /**
-     * @see GateBase#getPoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getPoweredState(IBlockState unpoweredState)
     {
@@ -58,9 +59,6 @@ public class BlockToggleableFlipFlop extends GateBase implements OneIn, ITileEnt
         return BlockInit.FLIPFLOP_TOGGLEABLE.getDefaultState().withProperty(FACING, facing);
     }
 
-    /**
-     * @see GateBase#getUnpoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getUnpoweredState(IBlockState poweredState)
     {
@@ -68,18 +66,21 @@ public class BlockToggleableFlipFlop extends GateBase implements OneIn, ITileEnt
         return BlockInit.FLIPFLOP_TOGGLEABLE.getDefaultState().withProperty(FACING, facing);
     }
 
-    public boolean eventReceived(IBlockState state, World worldIn, BlockPos pos, int id, int param)
+    /*public boolean eventReceived(IBlockState state, World worldIn, BlockPos pos, int id, int param)
     {
         super.eventReceived(state, worldIn, pos, id, param);
         TileEntity tileentity = worldIn.getTileEntity(pos);
         return tileentity != null && tileentity.receiveClientEvent(id, param);
-    }
+    }*/
 
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         this.onStateChange(worldIn, pos, state);
     }
 
+    /**
+     * calculates the output the block should give
+     */
     private void onStateChange(World worldIn, BlockPos pos, IBlockState state)
     {
         TileEntity tileEntity = worldIn.getTileEntity(pos);
@@ -140,7 +141,7 @@ public class BlockToggleableFlipFlop extends GateBase implements OneIn, ITileEnt
 
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
-        this.updateTick(worldIn, pos, state, worldIn.rand);
+        this.updateTick(worldIn, pos, state, null);
     }
 
     @Override

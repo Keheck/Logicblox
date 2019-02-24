@@ -17,7 +17,7 @@ public class BlockInit
     public static final List<Block> BLOCKS = new ArrayList<>();
 
     /* New Blocks */
-    public static final BlockNoLatencyRepeater DIVERSE_REPEATER = new BlockNoLatencyRepeater("diverse_nolatencyrepeater");
+    public static final BlockNoDelayRepeater DIVERSE_REPEATER = new BlockNoDelayRepeater("diverse_nodelayrepeater");
     public static final BlockBridgeLeft DIVERSE_BRIDGE_LEFT = new BlockBridgeLeft("diverse_bridge_left");
     public static final BlockGatedLatch LATCH_GATED = new BlockGatedLatch("latch_gated");
 

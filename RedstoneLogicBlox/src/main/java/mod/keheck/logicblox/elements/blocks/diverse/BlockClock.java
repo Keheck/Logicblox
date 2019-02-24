@@ -10,17 +10,17 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.block.Block;
 
 import java.util.Random;
+
+/**
+ * Acts like a normal 1 tick clock
+ */
 
 public class BlockClock extends GateBase implements OneIn
 {
     public BlockClock(String name) { super(name); }
 
-    /**
-     * @see GateBase#getWeakPower(IBlockState, IBlockAccess, BlockPos, EnumFacing)
-     */
     @Override
     public int getWeakPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
     {
@@ -34,9 +34,6 @@ public class BlockClock extends GateBase implements OneIn
         }
     }
 
-    /**
-     * @see GateBase#getStrongPower(IBlockState, IBlockAccess, BlockPos, EnumFacing)
-     */
     @Override
     public int getStrongPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
     {
@@ -44,13 +41,7 @@ public class BlockClock extends GateBase implements OneIn
     }
 
     /**
-     * returns true if the block is powered
-     */
-    @Override
-    public boolean isPowered(IBlockState state) { return state.getValue(ACTIVE); }
-
-    /**
-     * @see Block#updateTick(World, BlockPos, IBlockState, Random)
+     * handles the main part of the clock
      */
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
@@ -72,9 +63,6 @@ public class BlockClock extends GateBase implements OneIn
         }
     }
 
-    /**
-     * @see GateBase#getPoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getPoweredState(IBlockState unpoweredState)
     {
@@ -82,9 +70,12 @@ public class BlockClock extends GateBase implements OneIn
         return BlockInit.DIVERSE_CLOCK.getDefaultState().withProperty(FACING, facing).withProperty(ACTIVE, true);
     }
 
-    /**
-     * @see GateBase#getUnpoweredState(IBlockState)
-     */
+    @Override
+    protected int getDelay(IBlockState state)
+    {
+        return 2;
+    }
+
     @Override
     protected IBlockState getUnpoweredState(IBlockState poweredState)
     {
@@ -92,12 +83,6 @@ public class BlockClock extends GateBase implements OneIn
         return BlockInit.DIVERSE_CLOCK.getDefaultState().withProperty(FACING, facing).withProperty(ACTIVE, false);
     }
 
-    /**
-     * @see GateBase#getItemDropped(IBlockState, Random, int)
-     */
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
-        return ItemInit.ITEM_DIVERSE_CLOCK;
-    }
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) { return ItemInit.ITEM_DIVERSE_CLOCK; }
 }

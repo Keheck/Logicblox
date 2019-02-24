@@ -2,9 +2,9 @@ package mod.keheck.logicblox.elements.items;
 
 import mod.keheck.logicblox.Main;
 import mod.keheck.logicblox.init.ItemInit;
+import mod.keheck.logicblox.init.TabInit;
 import mod.keheck.logicblox.util.interfaces.IHasModel;
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlockSpecial;
 
 public class ItemBlockSpecialMod extends ItemBlockSpecial implements IHasModel
@@ -15,7 +15,7 @@ public class ItemBlockSpecialMod extends ItemBlockSpecial implements IHasModel
         setRegistryName(name);
         setUnlocalizedName(name);
         setMaxStackSize(64);
-        setCreativeTab(CreativeTabs.REDSTONE);
+        setCreativeTab(TabInit.TAB_BLOCKS);
 
         ItemInit.ITEMS.add(this);
     }

@@ -147,11 +147,11 @@ public abstract class GateBase extends BlockRedstoneDiode
         return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
     }
 
-    /**
-     * Currently useless
-     */
     @Override
-    protected int getDelay(IBlockState state) { return 2; }
+    public boolean isPowered(IBlockState state) { return state.getValue(ACTIVE); }
+
+    @Override
+    protected int getDelay(IBlockState state) { return 1; }
 
     /**
      * the side should allways be rendered

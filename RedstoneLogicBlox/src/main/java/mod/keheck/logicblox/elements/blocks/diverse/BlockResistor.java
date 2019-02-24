@@ -19,6 +19,11 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.Random;
 
+/**
+ * acts like a real resistor, decrasing
+ * the power of a redstone current
+ */
+
 public class BlockResistor extends GateBase implements ITileEntityProvider
 {
     public BlockResistor(String name) { super(name); }
@@ -29,6 +34,9 @@ public class BlockResistor extends GateBase implements ITileEntityProvider
         return blockState.getValue(FACING) == side ? this.getActiveSignal(blockAccess, pos, blockState) : 0;
     }
 
+    /**
+     * returns the output of the return number of the {@link TileEntityResistor#getOutput()} method
+     */
     @Override
     public int getActiveSignal(IBlockAccess worldIn, BlockPos pos, IBlockState state)
     {
@@ -47,9 +55,6 @@ public class BlockResistor extends GateBase implements ITileEntityProvider
         return facing == side || facing.getOpposite() == side || facing.rotateYCCW() == side;
     }
 
-    /**
-     * @see GateBase#getPoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getPoweredState(IBlockState unpoweredState)
     {
@@ -57,9 +62,6 @@ public class BlockResistor extends GateBase implements ITileEntityProvider
         return BlockInit.DIVERSE_RESISTOR.getDefaultState().withProperty(FACING, facing).withProperty(ACTIVE, true);
     }
 
-    /**
-     * @see GateBase#getUnpoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getUnpoweredState(IBlockState poweredState)
     {
@@ -80,6 +82,9 @@ public class BlockResistor extends GateBase implements ITileEntityProvider
         this.onStateChange(worldIn, pos, state, input);
     }
 
+    /**
+     * handles the output when a input is run into the block
+     */
     private void onStateChange(World worldIn, BlockPos pos, IBlockState state, int input)
     {
         TileEntity tileEntity = worldIn.getTileEntity(pos);

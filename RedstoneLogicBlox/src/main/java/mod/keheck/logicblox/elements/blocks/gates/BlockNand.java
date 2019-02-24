@@ -14,10 +14,17 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+/**
+ * Negates the output of the normal and gate
+ */
+
 public class BlockNand extends GateBase implements TwoIn
 {
     public BlockNand(String name) { super(name); }
 
+    /**
+     * calculates if the gate is open or not
+     */
     @Override
     protected boolean shouldBePowered(World worldIn, BlockPos pos, IBlockState state)
     {
@@ -65,8 +72,18 @@ public class BlockNand extends GateBase implements TwoIn
         return !(inputstrength1 && inputstrength2);
     }
 
+    /*/**
+     * handles the inputs and sets a new state and notifies the
+     * neighbours of the block if nescessary
+     *
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
+    {
+
+    }*/
+
+    @Override
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         boolean flag = this.shouldBePowered(worldIn, pos, state);
 
@@ -80,11 +97,10 @@ public class BlockNand extends GateBase implements TwoIn
             worldIn.setBlockState(pos, getUnpoweredState(state));
             worldIn.notifyNeighborsOfStateChange(pos, this, false);
         }
+
+        worldIn.updateBlockTick(pos, state.getBlock(), this.getDelay(state), -1);
     }
 
-    /**
-     * @see GateBase#getPoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getPoweredState(IBlockState unpoweredState)
     {
@@ -92,9 +108,6 @@ public class BlockNand extends GateBase implements TwoIn
         return BlockInit.GATE_NAND.getDefaultState().withProperty(FACING, facing).withProperty(ACTIVE, true);
     }
 
-    /**
-     * @see GateBase#getUnpoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getUnpoweredState(IBlockState poweredState)
     {
@@ -102,9 +115,6 @@ public class BlockNand extends GateBase implements TwoIn
         return BlockInit.GATE_NAND.getDefaultState().withProperty(FACING, facing).withProperty(ACTIVE, false);
     }
 
-    /**
-     * @see GateBase#getItemDropped(IBlockState, Random, int)
-     */
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) { return ItemInit.ITEM_GATE_NAND; }
 }

@@ -16,6 +16,5 @@ class TileEntityHandler
         GameRegistry.registerTileEntity(TileEntityRandomizerAnalog.class, new ResourceLocation(Main.MODID + ":tile_entity_randomizer_analog"));
         GameRegistry.registerTileEntity(TileEntityResistor.class, new ResourceLocation(Main.MODID + ":tile_entity_resistor"));
         GameRegistry.registerTileEntity(TileEntityTFlipFlop.class, new ResourceLocation(Main.MODID + ":tile_entity_tflip_flop"));
-        GameRegistry.registerTileEntity(TileEntityBridgeOutput.class, new ResourceLocation(Main.MODID + ":tile_entity_bridge_output"));
     }
 }

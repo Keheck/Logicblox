@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "RNR",
+    "NRN",
+    "RNR"
+  ],
+  "key":
+  {
+    "R":
+    {
+      "item": "minecraft:redstone"
+    },
+    "N":
+    {
+      "item": "logicblox:gate_nand"
+    }
+  },
+  "result":
+  {
+    "item": "logicblox:gate_xor"
+  }
+}

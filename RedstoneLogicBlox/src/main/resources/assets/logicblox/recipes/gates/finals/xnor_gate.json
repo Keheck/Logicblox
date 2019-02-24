@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "GRT"
+  ],
+  "key":
+  {
+    "G":
+    {
+      "item": "logicblox:gate_xor"
+    },
+    "R":
+    {
+      "item": "minecraft:redstone"
+    },
+    "T":
+    {
+      "item": "logicblox:ingred_base_wire_torch"
+    }
+  },
+  "result":
+  {
+    "item": "logicblox:gate_xnor"
+  }
+}

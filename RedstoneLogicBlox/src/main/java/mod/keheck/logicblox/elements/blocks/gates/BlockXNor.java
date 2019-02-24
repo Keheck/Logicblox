@@ -14,14 +14,14 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+/**
+ * Negates the input of a normal xor gate
+ */
+
 public class BlockXNor extends GateBase implements TwoIn
 {
-
     public BlockXNor(String name) { super(name); }
 
-    /**
-     * @see GateBase#getPoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getPoweredState(IBlockState unpoweredState)
     {
@@ -29,9 +29,6 @@ public class BlockXNor extends GateBase implements TwoIn
         return BlockInit.GATE_XNOR.getDefaultState().withProperty(FACING, facing).withProperty(ACTIVE, true);
     }
 
-    /**
-     * @see GateBase#getUnpoweredState(IBlockState)
-     */
     @Override
     protected IBlockState getUnpoweredState(IBlockState poweredState)
     {
@@ -39,6 +36,9 @@ public class BlockXNor extends GateBase implements TwoIn
         return BlockInit.GATE_XNOR.getDefaultState().withProperty(FACING, facing).withProperty(ACTIVE, false);
     }
 
+    /**
+     * calculates if the gate is open or not
+     */
     @Override
     protected boolean shouldBePowered(World worldIn, BlockPos pos, IBlockState state)
     {
@@ -86,8 +86,18 @@ public class BlockXNor extends GateBase implements TwoIn
         return inputstrength1 == inputstrength2;
     }
 
+    /*/**
+     * handles the inputs and sets a new state and notifies the
+     * neighbours of the block if nescessary
+     *
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
+    {
+
+    }*/
+
+    @Override
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         boolean flag = this.shouldBePowered(worldIn, pos, state);
 
@@ -101,10 +111,9 @@ public class BlockXNor extends GateBase implements TwoIn
             worldIn.setBlockState(pos, getUnpoweredState(state));
             worldIn.notifyNeighborsOfStateChange(pos, this, false);
         }
-    }
 
-    @Override
-    protected boolean isPowered(IBlockState state) { return this.isRepeaterPowered; }
+        worldIn.updateBlockTick(pos, state.getBlock(), this.getDelay(state), -1);
+    }
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) { return ItemInit.ITEM_GATE_XNOR; }

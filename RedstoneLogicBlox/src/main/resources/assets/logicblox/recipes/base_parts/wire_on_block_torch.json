@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "# ",
+    "SR"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:redstone"
+    },
+    "S":
+    {
+      "item": "minecraft:stone",
+      "data": 0
+    },
+    "R":
+    {
+      "item": "minecraft:redstone_torch"
+    }
+  },
+  "result":
+  {
+    "item": "logicblox:ingred_base_wire_torch"
+  }
+}

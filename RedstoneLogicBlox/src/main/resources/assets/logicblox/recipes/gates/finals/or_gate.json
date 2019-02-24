@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "RW ",
+    " BS",
+    "RW "
+  ],
+  "key":
+  {
+    "R":
+    {
+      "item": "minecraft:repeater"
+    },
+    "W":
+    {
+      "item": "logicblox:ingred_base_wire_none"
+    },
+    "B":
+    {
+      "item": "logicblox:ingred_base_wire_torch"
+    },
+    "S":
+    {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result":
+  {
+    "item": "logicblox:gate_or"
+  }
+}
